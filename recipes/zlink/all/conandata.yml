@@ -1,0 +1,4 @@
+sources:
+  "0.17.3":
+    url: "https://github.com/zlink-systems/zlink/releases/download/core/v0.17.3/zlink-0.17.3-source.tar.gz"
+    sha256: "8ba9a1387dd4e97263cd7c61b8e98cd16b1132d528860d1d7254dbe69e6d14f0"
