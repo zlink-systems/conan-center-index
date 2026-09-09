@@ -46,6 +46,10 @@ class ZlinkConan(ConanFile):
         tc = CMakeToolchain(self)
         tc.cache_variables["BUILD_SHARED"] = bool(self.options.shared)
         tc.cache_variables["BUILD_STATIC"] = not bool(self.options.shared)
+        # Upstream enables LTO/IPO by default; a static library built with
+        # -flto forces the consumer's toolchain to load the LTO plugin at link
+        # time, so leave IPO to the consumer.
+        tc.cache_variables["ENABLE_LTO"] = False
         tc.cache_variables["BUILD_TESTS"] = False
         tc.cache_variables["BUILD_BENCHMARKS"] = False
         tc.cache_variables["WITH_DOC"] = False
